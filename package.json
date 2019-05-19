@@ -1,0 +1,22 @@
+{
+  "name": "visitors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savefolla/visitors.git"
+  },
+  "author": "Saverio Follador",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/savefolla/visitors/issues"
+  },
+  "homepage": "https://github.com/savefolla/visitors#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
