@@ -1,3 +1,5 @@
+const port = process.env.PORT || 3000;
+
 const express = require('express');
 const app = express();
 const fs = require('fs');
@@ -22,6 +24,6 @@ app.post('/images', (req, res) => {
   res.sendStatus(200);
 });
 
-app.listen(3001, function () {
-  console.log('Example app listening on port 3001!');
+app.listen(port, function () {
+  console.log(`Started on port ${port}`);
 });
