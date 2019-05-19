@@ -2,34 +2,40 @@ const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const captureButton = document.getElementById('capture');
+const uploadYoursButton = document.getElementById('upload-yours');
+const background = document.getElementById('random-image');
+const yourImage = document.getElementById('your-image');
 
-const constraints = {
-  video: true,
-};
-
-captureButton.addEventListener('click', () => {
-  // Draw the video frame to the canvas.
-  context.drawImage(player, 0, 0, canvas.width, canvas.height);
-  postImage(canvas.toDataURL());
+uploadYoursButton.addEventListener('click', () => {
+  background.style.display = 'none';
+  yourImage.style.display = 'block';
+  navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
+    player.srcObject = stream;
+  });
 });
 
-// Attach the video stream to the video element and autoplay.
-navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-  player.srcObject = stream;
+captureButton.addEventListener('click', () => {
+  canvas.width = player.videoWidth;
+  canvas.height = player.videoHeight;
+  context.drawImage(player, 0, 0, player.videoWidth, player.videoHeight);
+  postImage(canvas.toDataURL());
+  getImage();
 });
 
 postImage = (data) => {
-    const payload = JSON.stringify({data});
-    const xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.open("POST", `${window.location.href}images`);
-    xhr.setRequestHeader("content-type", "application/json");
-    xhr.send(payload);
+  const payload = JSON.stringify({data});
+  const xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  xhr.open("POST", `${window.location.href}images`);
+  xhr.setRequestHeader("content-type", "application/json");
+  xhr.send(payload);
 };
 
-getAllImages = () => {
+getImage = () => {
   function reqListener() {
-    console.log(this.responseText);
+    background.style.backgroundImage = `url(${JSON.parse(this.responseText).data})`;
+    background.style.display = 'block';
+    yourImage.style.display = 'none';
   }
 
   var xhr = new XMLHttpRequest();
@@ -38,4 +44,4 @@ getAllImages = () => {
   xhr.send();
 };
 
-getAllImages();
+getImage();

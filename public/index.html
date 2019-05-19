@@ -3,13 +3,19 @@
 <head>
   <meta charset="utf-8">
   <title>Visitors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<video id="player" controls autoplay></video>
-<button id="capture">Capture</button>
+<div id="random-image">
+  <button id="upload-yours">Upload yours</button>
+</div>
+<div id="your-image">
+  <video id="player" autoplay></video>
+  <button id="capture">Capture</button>
+</div>
 <canvas id="canvas" width=320 height=240></canvas>
 </body>
 <script src="script.js"></script>

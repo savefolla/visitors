@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#random-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+#upload-yours {
+  position: absolute;
+  background: yellow;
+  color: purple;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+#your-image {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+#player {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#capture {
+  position: absolute;
+  background: purple;
+  color: yellow;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+canvas {
+  display: none;
+}

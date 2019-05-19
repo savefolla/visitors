@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/images', (req, res) => {
-  res.send(200);
+  res.send(db[Math.floor(Math.random() * db.length)]);
 });
 
 app.post('/images', (req, res) => {
@@ -19,7 +19,7 @@ app.post('/images', (req, res) => {
   fs.writeFile('./public/db.json', JSON.stringify(db), (err) => {
     if (err) console.log('error saving');
   });
-  res.send(200);
+  res.sendStatus(200);
 });
 
 app.listen(3001, function () {
