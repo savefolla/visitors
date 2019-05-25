@@ -1,5 +1,12 @@
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+const onWindowResize = () => {
+  console.log('called');
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+};
+
+onWindowResize();
+
+window.addEventListener('resize', onWindowResize);
 
 const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');

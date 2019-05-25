@@ -37,7 +37,7 @@ body {
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0.2rem 1.2rem;
 }
 
 #side-bar .active {
