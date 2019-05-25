@@ -55,7 +55,11 @@ body {
   background: var(--white);
   font-size: var(--font-size-big);
   height: 100%;
-  padding: 1rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  animation: fade-out .5s ease-out 1s both;
+  pointer-events: none;
 }
 
 #random-image .message {
