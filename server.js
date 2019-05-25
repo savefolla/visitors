@@ -3,24 +3,24 @@ const port = process.env.PORT || 3000;
 const express = require('express');
 const app = express();
 const fs = require('fs');
-const db = require('./public/db');
+const path = require('path');
+const multer = require('multer');
+const upload = multer({dest: 'public/images/'});
 
 app.use(express.static('public'));
-app.use(express.json({limit: '1000000kb'}));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 app.get('/images', (req, res) => {
-  res.send(db[Math.floor(Math.random() * db.length)]);
+  const directoryPath = path.join(__dirname, 'public', 'images');
+  fs.readdir(directoryPath, function (err, files) {
+    res.send({url: files[Math.floor(Math.random() * files.length)]});
+  });
 });
 
-app.post('/images', (req, res) => {
-  db.push(req.body);
-  fs.writeFile('./public/db.json', JSON.stringify(db), (err) => {
-    if (err) console.log('error saving');
-  });
+app.post('/images', upload.single('image'), (req, res) => {
   res.sendStatus(200);
 });
 

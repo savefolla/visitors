@@ -18,22 +18,24 @@ captureButton.addEventListener('click', () => {
   canvas.width = player.videoWidth;
   canvas.height = player.videoHeight;
   context.drawImage(player, 0, 0, player.videoWidth, player.videoHeight);
-  postImage(canvas.toDataURL());
-  getImage();
+  canvas.toBlob(blob => {
+    postImage(blob);
+    getImage();
+  });
 });
 
 postImage = (data) => {
-  const payload = JSON.stringify({data});
+  var formData = new FormData();
+  formData.append("image", data);
   const xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
   xhr.open("POST", `${window.location.href}images`);
-  xhr.setRequestHeader("content-type", "application/json");
-  xhr.send(payload);
+  xhr.send(formData);
 };
 
 getImage = () => {
   function reqListener() {
-    background.style.backgroundImage = `url(${JSON.parse(this.responseText).data})`;
+    background.style.backgroundImage = `url(images/${JSON.parse(this.responseText).url})`;
     background.style.display = 'block';
     yourImage.style.display = 'none';
   }
