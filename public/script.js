@@ -9,7 +9,11 @@ const yourImage = document.getElementById('your-image');
 uploadYoursButton.addEventListener('click', () => {
   background.style.display = 'none';
   yourImage.style.display = 'block';
-  navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
+  navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: false,
+    facingMode: 'user'
+  }).then((stream) => {
     player.srcObject = stream;
   });
 });
