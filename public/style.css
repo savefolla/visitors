@@ -1,26 +1,70 @@
+html {
+  --font-size-small: 14px;
+  --font-size-big: 48px;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --black: #1e1e1e;
+  --white: #eee;
+
+  color: var(--black);
+  background: var(--white);
+}
+
 body {
   margin: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  font-family: 'Space Mono', monospace;
+  font-size: var(--font-size-small);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#side-bar {
+  border-bottom: 2px solid black;
+  transform: rotate(-90deg);
+  position: fixed;
+  left: 0;
+  top: 100%;
+  z-index: 1;
+  background: var(--white);
+  transform-origin: top left;
+  width: 100vh;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+#side-bar .active {
+  font-weight: var(--font-weight-bold);
 }
 
 #random-image {
-  width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
   position: relative;
+  margin-left: 23px;
+}
+
+#random-image .message-wrapper {
+  background: var(--white);
+  font-size: var(--font-size-big);
+  height: 100%;
+  padding: 1rem;
+}
+
+#random-image .message {
+  max-width: 666px;
 }
 
 #upload-yours {
-  position: fixed;
-  background: yellow;
-  color: purple;
-  bottom: 1rem;
-  right: 1rem;
-  padding: 1rem;
-  cursor: pointer;
+  background: red;
+  color: var(--white);
 }
 
 #your-image {
@@ -43,13 +87,20 @@ body {
 }
 
 #capture {
-  position: fixed;
   background: purple;
   color: yellow;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  position: fixed;
+  border: none;
+  padding: .75rem 2.5rem;
   bottom: 1rem;
   right: 1rem;
-  padding: 1rem;
-  cursor: pointer;
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
 }
 
 canvas {
