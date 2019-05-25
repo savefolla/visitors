@@ -1,3 +1,6 @@
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');

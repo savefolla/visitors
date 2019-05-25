@@ -5,6 +5,7 @@ html {
   --font-weight-bold: 700;
   --black: #1e1e1e;
   --white: #eee;
+  --vh: 1px;
 
   color: var(--black);
   background: var(--white);
@@ -13,7 +14,7 @@ html {
 body {
   margin: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);;
   overflow: hidden;
   font-family: 'Space Mono', monospace;
   font-size: var(--font-size-small);
@@ -32,7 +33,7 @@ body {
   z-index: 1;
   background: var(--white);
   transform-origin: top left;
-  width: 100vh;
+  width: calc(var(--vh, 1vh) * 100);
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
@@ -66,17 +67,34 @@ body {
   max-width: 666px;
 }
 
-#upload-yours {
-  background: red;
-  color: var(--white);
-}
-
 #your-image {
   display: none;
   position: relative;
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);;
+}
+
+#your-image .capture-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+#capture {
+  border-radius: 50%;
+  padding: 0;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--white);
+  background: var(--black);
 }
 
 #player {
@@ -88,23 +106,24 @@ body {
   margin: auto;
   min-width: 100%;
   min-height: 100%;
+  transform: scaleX(-1);
 }
 
-#capture {
-  background: purple;
-  color: yellow;
+#upload-yours {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
 }
 
 button {
   font-family: inherit;
   cursor: pointer;
-  position: fixed;
   border: none;
   padding: .75rem 2.5rem;
-  bottom: 1rem;
-  right: 1rem;
   font-size: var(--font-size-small);
   text-transform: uppercase;
+  background: red;
+  color: var(--white);
 }
 
 canvas {

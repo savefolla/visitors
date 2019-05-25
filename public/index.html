@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>screenfac.es</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#eee">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
@@ -25,7 +26,9 @@
 </div>
 <div id="your-image">
   <video id="player" autoplay></video>
-  <button id="capture">Capture</button>
+  <div class="capture-wrapper">
+    <div id="capture"></div>
+  </div>
 </div>
 <canvas id="canvas" width=320 height=240></canvas>
 </body>
