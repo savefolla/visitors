@@ -95,6 +95,7 @@ body {
   align-items: center;
   border: 2px solid var(--white);
   background: var(--black);
+  cursor: pointer;
 }
 
 #player {
