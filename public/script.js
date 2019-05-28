@@ -55,7 +55,7 @@ getImage = () => {
 
   var xhr = new XMLHttpRequest();
   xhr.onload = reqListener;
-  xhr.open("GET", `${window.location.href}images`);
+  xhr.open("GET", `${window.location.href}image`);
   xhr.send();
 };
 
