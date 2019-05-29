@@ -28,7 +28,7 @@ app.get('/image', (req, res) => {
   });
 });
 
-app.post('/images', upload.single('image'), (req, res) => {
+app.post('/image', upload.single('image'), (req, res) => {
   res.sendStatus(200);
 });
 

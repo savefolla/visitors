@@ -42,7 +42,7 @@ postImage = (data) => {
   formData.append("image", data);
   const xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
-  xhr.open("POST", `${window.location.href}images`);
+  xhr.open("POST", `${window.location.href}image`);
   xhr.send(formData);
 };
 
