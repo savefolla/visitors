@@ -32,8 +32,10 @@ captureButton.addEventListener('click', () => {
   canvas.height = player.videoHeight;
   context.drawImage(player, 0, 0, player.videoWidth, player.videoHeight);
   canvas.toBlob(blob => {
+    background.style.backgroundImage = `url(${URL.createObjectURL(blob)})`;
+    background.style.display = 'block';
+    yourImage.style.display = 'none';
     postImage(blob);
-    getImage();
   });
 });
 
