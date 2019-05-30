@@ -24,7 +24,10 @@ app.get('/', (req, res) => {
 app.get('/image', (req, res) => {
   const directoryPath = path.join(__dirname, 'public', 'images');
   fs.readdir(directoryPath, function (err, files) {
-    res.send({url: files[Math.floor(Math.random() * files.length)]});
+    res.send({
+      url: files[Math.floor(Math.random() * files.length)],
+      total: files.length
+    });
   });
 });
 

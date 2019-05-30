@@ -16,6 +16,9 @@ const background = document.getElementById('random-image');
 const homeMessage = document.querySelector('.message--home');
 const thanksMessage = document.querySelector('.message--thanks');
 const yourImage = document.getElementById('your-image');
+const count = document.getElementById('count');
+
+let total;
 
 uploadYoursButton.addEventListener('click', () => {
   background.style.display = 'none';
@@ -39,9 +42,14 @@ captureButton.addEventListener('click', () => {
     thanksMessage.style.display = 'block';
     homeMessage.style.display = 'none';
     yourImage.style.display = 'none';
+    setCount(++total);
     postImage(blob);
   });
 });
+
+setCount = (value) => {
+  count.innerHTML = `${value} shots collected`;
+};
 
 postImage = (data) => {
   var formData = new FormData();
@@ -54,7 +62,10 @@ postImage = (data) => {
 
 getImage = () => {
   function reqListener() {
-    background.style.backgroundImage = `url(images/${JSON.parse(this.responseText).url})`;
+    const res = JSON.parse(this.responseText);
+    total = res.total;
+    setCount(res.total);
+    background.style.backgroundImage = `url(images/${res.url})`;
     background.style.display = 'block';
     homeMessage.style.display = 'block';
     yourImage.style.display = 'none';
