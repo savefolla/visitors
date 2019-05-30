@@ -67,6 +67,11 @@ body {
   max-width: 666px;
 }
 
+.message--home,
+.message--thanks {
+  display: none;
+}
+
 #your-image {
   display: none;
   position: relative;

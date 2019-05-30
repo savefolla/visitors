@@ -13,6 +13,8 @@ const context = canvas.getContext('2d');
 const captureButton = document.getElementById('capture');
 const uploadYoursButton = document.getElementById('upload-yours');
 const background = document.getElementById('random-image');
+const homeMessage = document.querySelector('.message--home');
+const thanksMessage = document.querySelector('.message--thanks');
 const yourImage = document.getElementById('your-image');
 
 uploadYoursButton.addEventListener('click', () => {
@@ -34,6 +36,8 @@ captureButton.addEventListener('click', () => {
   canvas.toBlob(blob => {
     background.style.backgroundImage = `url(${URL.createObjectURL(blob)})`;
     background.style.display = 'block';
+    thanksMessage.style.display = 'block';
+    homeMessage.style.display = 'none';
     yourImage.style.display = 'none';
     postImage(blob);
   });
@@ -52,6 +56,7 @@ getImage = () => {
   function reqListener() {
     background.style.backgroundImage = `url(images/${JSON.parse(this.responseText).url})`;
     background.style.display = 'block';
+    homeMessage.style.display = 'block';
     yourImage.style.display = 'none';
   }
 
