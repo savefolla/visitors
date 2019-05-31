@@ -13,7 +13,19 @@ const storage = multer.diskStorage({
     cb(null, '' + Date.now())
   }
 });
-const upload = multer({storage});
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: 5 * 1024 * 1024,
+    files: 1
+  },
+  fileFilter: function (req, file, callback) {
+    if (!file.mimetype.includes('image')) {
+      return callback(new Error('Only images allowed!'));
+    }
+    callback(null, true)
+  },
+});
 
 app.use(express.static('public'));
 
