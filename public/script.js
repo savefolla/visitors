@@ -19,6 +19,7 @@ const yourImage = document.getElementById('your-image');
 const count = document.getElementById('count');
 
 let total;
+let cameraEnabled = false;
 
 uploadYoursButton.addEventListener('click', () => {
   background.style.display = 'none';
@@ -28,11 +29,13 @@ uploadYoursButton.addEventListener('click', () => {
     audio: false,
     facingMode: 'user'
   }).then((stream) => {
+    cameraEnabled = true;
     player.srcObject = stream;
   });
 });
 
 captureButton.addEventListener('click', () => {
+  if (!cameraEnabled) return;
   canvas.width = player.videoWidth;
   canvas.height = player.videoHeight;
   context.drawImage(player, 0, 0, player.videoWidth, player.videoHeight);
