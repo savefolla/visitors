@@ -5,8 +5,10 @@ const app = express();
 const fs = require('fs');
 const path = require('path');
 const helmet = require('helmet');
+const compression = require('compression');
 const multer = require('multer');
 
+app.use(compression());
 app.use(helmet());
 
 const storage = multer.diskStorage({
