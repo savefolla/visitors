@@ -4,7 +4,11 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
+const helmet = require('helmet');
 const multer = require('multer');
+
+app.use(helmet());
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/images/')
