@@ -49,7 +49,7 @@ app.get('/image', (req, res) => {
   });
 });
 
-app.get('/pleaseshoemethephoto /:index', (req, res) => {
+app.get('/pleaseshoemethephoto/:index', (req, res) => {
   const directoryPath = path.join(__dirname, 'public', 'images');
   fs.readdir(directoryPath, function (err, files) {
     res.send(`<img src=${path.join('/images/' + files[req.params.index])} />`);
