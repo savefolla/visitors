@@ -5,6 +5,7 @@ html {
   --font-weight-bold: 700;
   --black: #1e1e1e;
   --white: #eee;
+  --red: #EE0000;
   --vh: 1px;
 
   color: var(--black);
@@ -127,8 +128,8 @@ button {
   padding: .75rem 2.5rem;
   font-size: var(--font-size-small);
   text-transform: uppercase;
-  background: red;
-  color: var(--white);
+  background: var(--red);
+  color: white;
 }
 
 canvas {
