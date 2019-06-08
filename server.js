@@ -42,12 +42,14 @@ app.get('/', (req, res) => {
 app.get('/image', (req, res) => {
   const directoryPath = path.join(__dirname, 'public', 'images');
   fs.readdir(directoryPath, function (err, files) {
-    if(files){
-      res.send({
-        url: files[Math.floor(Math.random() * files.length)],
-        total: files.length
-      });
-    }
+    if (files) res.send({
+      url: files[Math.floor(Math.random() * files.length)],
+      total: files.length
+    });
+    else res.send({
+      url: '',
+      total: 0
+    });
   });
 });
 
