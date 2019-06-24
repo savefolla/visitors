@@ -21,7 +21,8 @@ const count = document.getElementById('count');
 let total;
 let cameraEnabled = false;
 
-uploadYoursButton.addEventListener('click', () => {
+uploadYoursButton.addEventListener('click', (e) => {
+  e.stopPropagation();
   background.style.display = 'none';
   yourImage.style.display = 'block';
   navigator.mediaDevices.getUserMedia({
@@ -80,7 +81,6 @@ getImage = () => {
   xhr.send();
 };
 
-background.addEventListener('click', getImage)
-background.addEventListener('mouseover', getImage)
+background.addEventListener('click', getImage);
 
 getImage();
