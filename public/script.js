@@ -80,4 +80,7 @@ getImage = () => {
   xhr.send();
 };
 
+background.addEventListener('click', getImage)
+background.addEventListener('mouseover', getImage)
+
 getImage();
