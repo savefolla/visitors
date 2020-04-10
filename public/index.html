@@ -1,72 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>screenfac.es</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="View random pictures and upload yours">
-  <meta name="theme-color" content="#eee">
+  <head>
+    <meta charset="utf-8" />
+    <title>screenfac.es</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="View random pictures and upload yours" />
+    <meta name="theme-color" content="#eee" />
 
-  <meta property="og:title" content="screenfac.es"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://screenfac.es"/>
-  <meta property="og:image" content="https://screenfac.es/android-chrome-512x512.png"/>
-  <meta property="og:description" content="View random pictures and upload yours"/>
+    <meta property="og:title" content="screenfac.es" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://screenfac.es" />
+    <meta
+      property="og:image"
+      content="https://screenfac.es/android-chrome-512x512.png"
+    />
+    <meta
+      property="og:description"
+      content="View random pictures and upload yours"
+    />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-  <link rel="stylesheet" href="style.css" media="all">
-  <link rel="stylesheet" href="animations.css" media="all">
-</head>
-<body>
-
-
-<div class="header">Screenfaces from quarantine :)</div>
-<div class="image-wrapper">
-  <img id="random-image" src=""/>
-  <div class="message-wrapper">
-    <div class="message message--home">
-      Not much to say. <br>
-      We miss your faces out there and we want them here.
+    <link rel="stylesheet" href="style.css" media="all" />
+    <link rel="stylesheet" href="animations.css" media="all" />
+  </head>
+  <body>
+    <div class="header">
+      Screenfaces<br />
+      from quarantine ☺
     </div>
-    <div class="message message--thanks">
-      Thank you ❤️
+    <div class="image-wrapper">
+      <img id="random-image" src="" />
+      <div class="message-wrapper">
+        <div class="message message--home">
+          Not much to say. <br />
+          We miss your faces out there and we want them here.
+        </div>
+        <div class="message message--thanks">
+          Thank you ❤️
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="footer">
-  <div class="cursor-pointer">
-    <span><span id="count"></span> SHOTS COLLECTED</span>
-  </div>
-  <div id="upload-yours" class="cursor-pointer">
-    <span>UPLOAD YOURS</span>
-  </div>
-  <div class="about"></div>
-</div>
+    <div class="footer">
+      <div class="cursor-pointer">
+        <span><span id="count"></span> SHOTS COLLECTED</span>
+      </div>
+      <div id="upload-yours" class="cursor-pointer">
+        <span>UPLOAD YOURS</span>
+      </div>
+      <div class="about"></div>
+    </div>
 
+    <div id="your-image">
+      <video id="player" autoplay loop muted playsinline></video>
+      <div class="capture-wrapper">
+        <div id="capture"></div>
+      </div>
+    </div>
+    <canvas id="canvas" width="320" height="240"></canvas>
+  </body>
+  <script src="script.js" async defer></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-62140955-22"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-<div id="your-image">
-  <video id="player" autoplay loop muted playsinline></video>
-  <div class="capture-wrapper">
-    <div id="capture"></div>
-  </div>
-</div>
-<canvas id="canvas" width=320 height=240></canvas>
-</body>
-<script src="script.js" async defer></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62140955-22"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
-  gtag('js', new Date());
-  gtag('config', 'UA-62140955-22');
-</script>
+    gtag("js", new Date());
+    gtag("config", "UA-62140955-22");
+  </script>
 </html>
