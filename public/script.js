@@ -12,7 +12,7 @@ const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const captureButton = document.getElementById('capture');
 const uploadYoursButton = document.getElementById('upload-yours');
-const background = document.getElementById('random-image');
+const image = document.getElementById('random-image');
 const homeMessage = document.querySelector('.message--home');
 const thanksMessage = document.querySelector('.message--thanks');
 const yourImage = document.getElementById('your-image');
@@ -23,7 +23,7 @@ let cameraEnabled = false;
 
 uploadYoursButton.addEventListener('click', (e) => {
   e.stopPropagation();
-  background.style.display = 'none';
+  image.style.display = 'none';
   yourImage.style.display = 'block';
   navigator.mediaDevices.getUserMedia({
     video: true,
@@ -41,8 +41,8 @@ captureButton.addEventListener('click', () => {
   canvas.height = player.videoHeight;
   context.drawImage(player, 0, 0, player.videoWidth, player.videoHeight);
   canvas.toBlob(blob => {
-    background.style.backgroundImage = `url(${URL.createObjectURL(blob)})`;
-    background.style.display = 'block';
+    image.src = URL.createObjectURL(blob);
+    image.style.display = 'block';
     thanksMessage.style.display = 'block';
     homeMessage.style.display = 'none';
     yourImage.style.display = 'none';
@@ -52,7 +52,7 @@ captureButton.addEventListener('click', () => {
 });
 
 setCount = (value) => {
-  count.innerHTML = `${value} shots collected`;
+  count.innerHTML = value;
 };
 
 postImage = (data) => {
@@ -69,8 +69,8 @@ getImage = () => {
     const res = JSON.parse(this.responseText);
     total = res.total;
     setCount(res.total);
-    background.style.backgroundImage = `url(images/${res.url})`;
-    background.style.display = 'block';
+    image.src = 'images/' + res.url;
+    image.style.display = 'block';
     homeMessage.style.display = 'block';
     yourImage.style.display = 'none';
   }
@@ -81,6 +81,6 @@ getImage = () => {
   xhr.send();
 };
 
-background.addEventListener('click', getImage);
+image.addEventListener('click', getImage);
 
 getImage();
