@@ -26,6 +26,12 @@ body {
   grid-template-rows: 15% 70% 15%;
 }
 
+@media (max-width: 767px) {
+  body {
+    grid-template-rows: 30% 50% 20%;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -55,6 +61,18 @@ body {
   border: 1px solid;
   padding: 10px;
   border-radius: 24px;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+
+  .footer > :first-child {
+    text-align: center;
+  }
 }
 
 .image-wrapper {
