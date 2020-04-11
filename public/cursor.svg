@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#FFFFFF" stroke-width="2" cx="40" cy="40" r="38"></circle>
+        <text id="CLICK-TO-REFRESH" font-family="SFProDisplay-Bold, SF Pro Display" font-size="11" font-weight="bold" line-spacing="13" letter-spacing="0.55" fill="#FFFFFF">
+            <tspan x="14.0683105" y="38">CLICK TO</tspan>
+            <tspan x="14.7273438" y="51">REFRESH</tspan>
+        </text>
+    </g>
+</svg>
