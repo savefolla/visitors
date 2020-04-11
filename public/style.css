@@ -49,6 +49,17 @@ body {
   box-sizing: border-box;
 }
 
+a {
+  border-bottom: 1px solid transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: border 0.2s ease;
+}
+
+a:hover {
+  border-bottom: 1px solid #fff;
+}
+
 .header {
   display: grid;
   font-family: "Sporting", monospace;
@@ -106,8 +117,15 @@ body {
 
 .about-wrapper {
   font-size: 24px;
+  font-weight: 300;
   padding: 20px;
   text-align: center;
+}
+
+.privacy-policy {
+  font-size: 14px;
+  margin-top: 40px;
+  text-transform: uppercase;
 }
 
 #random-image {
