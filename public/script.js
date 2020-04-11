@@ -80,7 +80,7 @@ postImage = (data) => {
   formData.append("image", data);
   const xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
-  xhr.open("POST", `${window.location.href}image`);
+  xhr.open("POST", `${window.location.origin}/image`);
   xhr.send(formData);
 };
 
@@ -97,7 +97,7 @@ getImage = () => {
 
   var xhr = new XMLHttpRequest();
   xhr.onload = reqListener;
-  xhr.open("GET", `${window.location.href}image`);
+  xhr.open("GET", `${window.location.origin}/image`);
   xhr.send();
 };
 
