@@ -65,7 +65,6 @@ captureButton.addEventListener("click", () => {
     homeMessage.style.display = "none";
     yourImage.style.display = "none";
     image.style.display = "block";
-    delete messageWrapper.style.animation;
     setCount(++total);
     postImage(blob);
   });
@@ -88,11 +87,11 @@ getImage = () => {
   function reqListener() {
     const res = JSON.parse(this.responseText);
     total = res.total;
-    setCount(res.total);
     image.src = "images/" + res.url;
     image.style.display = "block";
-    homeMessage.style.display = "block";
+    if (!count.innerHTML) homeMessage.style.display = "block";
     yourImage.style.display = "none";
+    setCount(res.total);
   }
 
   var xhr = new XMLHttpRequest();
