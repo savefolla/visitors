@@ -130,7 +130,7 @@ a:hover {
 
 #random-image {
   animation: fade-in 0.5s ease-out 2s both;
-  cursor: url(https://screenfac.es/cursor.svg) 40px 40px;
+  cursor: url(https://screenfac.es/cursor.svg) 40 40, pointer;
   display: block;
   max-height: 100%;
   max-width: 100%;
