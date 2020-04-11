@@ -24,7 +24,7 @@ body {
   font-family: -apple-system, system-ui, Helvetica, Arial, sans-serif;
   font-size: 14px;
   grid-template-columns: 1fr;
-  grid-template-rows: 15% 70% 15%;
+  grid-template-rows: 20% 65% 15%;
   height: calc(var(--vh, 1vh) * 100);
   letter-spacing: 0.04em;
   margin: 0;
@@ -33,7 +33,7 @@ body {
 
 @media (max-width: 767px) {
   body {
-    grid-template-rows: 30% 50% 20%;
+    grid-template-rows: 25% 55% 20%;
   }
 }
 
@@ -91,6 +91,7 @@ body {
 
 #random-image {
   animation: fade-in 0.5s ease-out 2s both;
+  cursor: pointer;
   display: block;
   max-height: 100%;
   max-width: 100%;
