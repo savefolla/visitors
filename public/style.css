@@ -116,10 +116,20 @@ a:hover {
 }
 
 .about-wrapper {
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 300;
   padding: 20px;
-  text-align: center;
+  text-align: left;
+}
+
+.about-wrapper * {
+  max-width: 500px;
+}
+
+@media screen and (min-width: 380px) {
+  .about-wrapper {
+    font-size: 24px;
+  }
 }
 
 .privacy-policy {
