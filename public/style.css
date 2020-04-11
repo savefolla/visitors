@@ -3,6 +3,14 @@
   src: url("sporting.ttf") format("truetype");
 }
 
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+*:focus {
+  outline: none;
+}
+
 html {
   --vh: 1px;
 }
@@ -59,8 +67,13 @@ body {
   align-items: center;
 }
 
+.footer .shots {
+  display: flex;
+}
+
 .footer .about {
-  text-align: end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .footer #upload-yours {
@@ -72,21 +85,29 @@ body {
 
 @media (max-width: 767px) {
   .footer {
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr;
     align-items: center;
   }
 
-  .footer > :first-child {
-    text-align: center;
+  .footer .shots,
+  .footer .about {
+    justify-content: center;
   }
 }
 
-.image-wrapper {
+.image-wrapper,
+.about-wrapper {
   display: grid;
   place-items: center;
   padding: 40px 0;
   position: relative;
+}
+
+.about-wrapper {
+  font-size: 24px;
+  padding: 20px;
+  text-align: center;
 }
 
 #random-image {

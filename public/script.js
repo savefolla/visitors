@@ -18,9 +18,23 @@ const homeMessage = document.querySelector(".message--home");
 const thanksMessage = document.querySelector(".message--thanks");
 const yourImage = document.getElementById("your-image");
 const count = document.getElementById("count");
+const aboutWrapper = document.querySelector(".about-wrapper");
+const imageWrapper = document.querySelector(".image-wrapper");
+const aboutButton = document.getElementById("about-button");
+const countButton = document.getElementById("count-button");
 
 let total;
 let cameraEnabled = false;
+
+aboutButton.addEventListener("click", () => {
+  imageWrapper.style.display = "none";
+  aboutWrapper.style.display = "grid";
+});
+
+countButton.addEventListener("click", () => {
+  imageWrapper.style.display = "grid";
+  aboutWrapper.style.display = "none";
+});
 
 uploadYoursButton.addEventListener("click", (e) => {
   e.stopPropagation();
