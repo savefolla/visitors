@@ -13,6 +13,7 @@ const context = canvas.getContext('2d');
 const captureButton = document.getElementById('capture');
 const uploadYoursButton = document.getElementById('upload-yours');
 const image = document.getElementById('random-image');
+const messageWrapper = document.querySelector('.message-wrapper');
 const homeMessage = document.querySelector('.message--home');
 const thanksMessage = document.querySelector('.message--thanks');
 const yourImage = document.getElementById('your-image');
@@ -42,10 +43,13 @@ captureButton.addEventListener('click', () => {
   context.drawImage(player, 0, 0, player.videoWidth, player.videoHeight);
   canvas.toBlob(blob => {
     image.src = URL.createObjectURL(blob);
-    image.style.display = 'block';
+    image.style.display = 'none';
+    messageWrapper.style.animation = 'none';
     thanksMessage.style.display = 'block';
     homeMessage.style.display = 'none';
     yourImage.style.display = 'none';
+    image.style.display = 'block';
+    delete messageWrapper.style.animation;
     setCount(++total);
     postImage(blob);
   });
