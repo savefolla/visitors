@@ -56,7 +56,7 @@ a {
   transition: border 0.2s ease;
 }
 
-a:hover {
+a:not(.title):hover {
   border-bottom: 1px solid #fff;
 }
 
